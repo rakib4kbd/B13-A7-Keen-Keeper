@@ -2,3 +2,11 @@
 @plugin "daisyui" {
   themes: light --default;
 }
+
+.text-description {
+  color: #64748b;
+}
+
+.text-heading {
+  color: #1f2937;
+}
