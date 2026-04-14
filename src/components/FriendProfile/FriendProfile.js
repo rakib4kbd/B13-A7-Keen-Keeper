@@ -7,8 +7,8 @@ import QuickCheckIn from "./QuickCheckIn/QuickCheckIn";
 
 const FriendProfile = ({ friendProfile }) => {
   return (
-    <div className="container mx-auto mt-20">
-      <div className="grid grid-cols-3 gap-6">
+    <div className="container mx-auto mt-4 md:mt-20">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-2 md:px-0">
         <div className="flex flex-col items-center  gap-4">
           <div className="card bg-white p-6 flex flex-col gap-2 drop-shadow w-full text-center">
             <div className="flex items-center justify-center">
@@ -56,23 +56,23 @@ const FriendProfile = ({ friendProfile }) => {
             </button>
           </div>
         </div>
-        <div className="col-span-2">
+        <div className="md:col-span-2">
           <div className="flex flex-col gap-6">
-            <div className="grid grid-cols-3 gap-6">
-              <div className="card bg-white flex flex-col items-center justify-center gap-2 p-8 drop-shadow">
-                <h1 className="text-2xl font-semibold text-heading">
+            <div className="grid grid-cols-3 gap-2 md:gap-6">
+              <div className="card bg-white flex flex-col items-center justify-center gap-2 p-1 md:p-8 drop-shadow">
+                <h1 className="text-lg md:text-2xl font-semibold text-heading">
                   {friendProfile.days_since_contact}
                 </h1>
                 <p className="text-description">Days Since Contact</p>
               </div>
-              <div className="card bg-white flex flex-col items-center justify-center gap-2 p-8 drop-shadow">
-                <h1 className="text-2xl font-semibold text-heading">
+              <div className="card bg-white flex flex-col items-center justify-center gap-2 p-1 md:p-8 drop-shadow">
+                <h1 className="text-lg md:text-2xl font-semibold text-heading">
                   {friendProfile.goal}
                 </h1>
                 <p className="text-description">Goal (Days)</p>
               </div>
-              <div className="card bg-white flex flex-col items-center justify-center gap-2 p-8 drop-shadow">
-                <h1 className="text-2xl font-semibold text-heading">
+              <div className="card bg-white flex flex-col items-center justify-center gap-2 p-1 md:p-8 drop-shadow">
+                <h1 className="text-lg md:text-2xl font-semibold text-heading">
                   {new Date(friendProfile.next_due_date).toLocaleDateString(
                     "en-US",
                     {

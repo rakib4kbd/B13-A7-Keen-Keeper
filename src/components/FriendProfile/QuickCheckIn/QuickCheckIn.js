@@ -3,11 +3,10 @@
 import { MessageSquareMore } from "lucide-react";
 import { Video } from "lucide-react";
 import { PhoneCall } from "lucide-react";
-import React from "react";
-
+import { toast } from "react-toastify";
 const QuickCheckIn = ({ friendProfile }) => {
-  const handleCheckIn = (userId, clickedBtn) => {
-    console.log("user", userId, "button", clickedBtn);
+  const handleCheckIn = (userName, clickedBtn) => {
+    toast(`${clickedBtn} with ${userName}`);
   };
 
   return (
@@ -15,11 +14,12 @@ const QuickCheckIn = ({ friendProfile }) => {
       <h1 className="text-heading-profile text-xl font-medium">
         Quick Check-In
       </h1>
+
       <div className="grid grid-cols-3 gap-4">
         <button
           className="btn btn-lg flex flex-col items-center justify-center card py-5 w-full h-full"
           onClick={() => {
-            handleCheckIn(friendProfile.name, "call");
+            handleCheckIn(friendProfile.name, "Call");
           }}
         >
           <PhoneCall width={100} /> <p>Call</p>
@@ -27,7 +27,7 @@ const QuickCheckIn = ({ friendProfile }) => {
         <button
           className="btn btn-lg flex flex-col items-center justify-center card py-5 w-full h-full"
           onClick={() => {
-            handleCheckIn(friendProfile.name, "text");
+            handleCheckIn(friendProfile.name, "Text");
           }}
         >
           <MessageSquareMore width={100} /> <p>Text</p>
@@ -35,7 +35,7 @@ const QuickCheckIn = ({ friendProfile }) => {
         <button
           className="btn btn-lg flex flex-col items-center justify-center card py-5 w-full h-full"
           onClick={() => {
-            handleCheckIn(friendProfile.name, "video");
+            handleCheckIn(friendProfile.name, "Video");
           }}
         >
           <Video width={100} /> <p>Video</p>
