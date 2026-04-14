@@ -1,6 +1,8 @@
+import friends from "@/data/friends";
+
 const fetchFriends = async () => {
-  const res = await fetch("http://localhost:3000/friends.json");
-  return res.json();
+  const res = friends;
+  return res;
 };
 
 export default fetchFriends;

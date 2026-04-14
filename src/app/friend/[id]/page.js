@@ -1,6 +1,14 @@
 import FriendProfile from "@/components/FriendProfile/FriendProfile";
 import fetchFriends from "@/utils/fetchFriends";
 
+export async function generateStaticParams() {
+  const friends = await fetchFriends();
+
+  return friends.map((friend) => ({
+    id: String(friend.id),
+  }));
+}
+
 const FriendById = async ({ params }) => {
   const { id } = await params;
 
