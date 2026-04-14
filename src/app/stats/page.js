@@ -3,7 +3,7 @@ import React from "react";
 
 const StatsPage = () => {
   return (
-    <div className="container mx-auto mt-4 md:mt-20">
+    <div className="container mx-auto mt-4 md:mt-20 px-2 md:px-0">
       <div className="flex flex-col justify-center gap-6">
         <h1 className="text-3xl text-heading font-bold">
           Friendship Analytics
