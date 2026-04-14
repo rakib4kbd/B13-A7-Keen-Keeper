@@ -1,11 +1,26 @@
 "use client";
 
+import { TimelineContext } from "@/provider/TimelineProvider";
 import { MessageSquareMore } from "lucide-react";
 import { Video } from "lucide-react";
 import { PhoneCall } from "lucide-react";
+import { useContext } from "react";
 import { toast } from "react-toastify";
 const QuickCheckIn = ({ friendProfile }) => {
+  const { timeline, setTimeline } = useContext(TimelineContext);
   const handleCheckIn = (userName, clickedBtn) => {
+    setTimeline([
+      ...timeline,
+      {
+        user: userName,
+        action: clickedBtn,
+        date: new Date().toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+        }),
+      },
+    ]);
     toast(`${clickedBtn} with ${userName}`);
   };
 
