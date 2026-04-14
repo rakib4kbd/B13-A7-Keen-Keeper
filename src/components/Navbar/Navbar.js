@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Home, Clock, ChartLine } from "lucide-react";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const navLinks = [
@@ -24,8 +25,7 @@ const Navbar = () => {
     },
   ];
 
-  const [active, setActive] = useState("/");
-
+  const pathname = usePathname();
   return (
     <div className="navbar shadow-sm px-2 md:px-10 py-4">
       <div className="navbar-start">
@@ -38,13 +38,12 @@ const Navbar = () => {
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
-              {" "}
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
                 d="M4 6h16M4 12h8m-8 6h16"
-              />{" "}
+              />
             </svg>
           </div>
           <ul
@@ -73,10 +72,7 @@ const Navbar = () => {
             <Link
               href={link.navigation}
               key={index}
-              className={`${link.navigation == active && "btn-active bg-green-900 text-white"} btn btn-ghost flex items-center justify-center flex-row px-4 gap-1`}
-              onClick={() => {
-                setActive(link.navigation);
-              }}
+              className={`${link.navigation == pathname && "btn-active bg-green-900 text-white"} btn btn-ghost flex items-center justify-center flex-row px-4 gap-1`}
             >
               {link.logo}
               {link.label}
