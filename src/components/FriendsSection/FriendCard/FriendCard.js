@@ -38,12 +38,12 @@ const FriendCard = ({ friendList }) => {
             <h1 className="text-heading text-xl font-semibold">
               {friend.name}
             </h1>
-            <p className="text-xs">{friend.next_due_date}</p>
+            <p className="text-xs">{friend.days_since_contact}d ago</p>
             <div className="flex items-center gap-2 justify-center">
               {friend.tags.map((tag, index) => (
                 <p
                   key={index}
-                  className="bg-green-200 rounded-full px-2 py-1 text-sm"
+                  className="bg-green-200 rounded-full px-2 py-1 text-sm text-nowrap"
                 >
                   {tag.toUpperCase()}
                 </p>

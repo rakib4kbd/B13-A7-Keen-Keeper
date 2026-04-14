@@ -1,5 +1,6 @@
-import { use } from "react";
+import { Suspense, use } from "react";
 import FriendCard from "./FriendCard/FriendCard";
+import LoadingPage from "@/app/loading";
 
 const FriendsSection = ({ friendsPromise }) => {
   const friendList = use(friendsPromise);
@@ -36,7 +37,9 @@ const FriendsSection = ({ friendsPromise }) => {
         <div className="flex flex-col gap-4">
           <h1 className="text-heading text-2xl font-semibold">Your Friends</h1>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mx-2 md:mx-0 text-center">
-            <FriendCard friendList={friendList} />
+            <Suspense fallback={<LoadingPage />}>
+              <FriendCard friendList={friendList} />
+            </Suspense>
           </div>
         </div>
       </div>

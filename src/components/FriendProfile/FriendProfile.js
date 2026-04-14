@@ -4,8 +4,13 @@ import { BellMinus } from "lucide-react";
 import { Archive } from "lucide-react";
 import { Trash2 } from "lucide-react";
 import QuickCheckIn from "./QuickCheckIn/QuickCheckIn";
+import { notFound } from "next/navigation";
 
 const FriendProfile = ({ friendProfile }) => {
+  if (!friendProfile) {
+    notFound();
+  }
+
   return (
     <div className="container mx-auto mt-4 md:mt-20">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-2 md:px-0">
@@ -41,7 +46,9 @@ const FriendProfile = ({ friendProfile }) => {
               ))}
             </div>
             <p className="quote italic text-sm text-description">{`"${friendProfile.bio}"`}</p>
-            <p className="text-xs text-description">Preferred: email</p>
+            <p className="text-xs text-description">
+              Email: {friendProfile.email}
+            </p>
           </div>
 
           <div className="w-full flex flex-col gap-2">
