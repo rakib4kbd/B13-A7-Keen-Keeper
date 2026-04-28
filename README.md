@@ -119,4 +119,4 @@ pnpm lint
 
 ## 📄 License
 
-This project is private and not licensed for public use.
+This project is under the MIT License.
